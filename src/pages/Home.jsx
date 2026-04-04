@@ -18,11 +18,13 @@ export default function Home() {
             </section>
 
             {/* ================= FEATURED PRODUCTS ================= */}
-            <section className="max-w-7xl mx-auto px-6 py-16">
-                <h2 className="text-3xl font-bold mb-8">Featured Gear</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <section className="max-w-7xl mx-auto px-6 py-16 border-b border-gray-800">
+                <h2 className="text-3xl font-bold mb-8 text-white">Featured Gear</h2>
+                <div className="flex overflow-x-auto gap-8 snap-x snap-mandatory pb-4 pt-2 -mx-6 px-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                     {featuredProducts.map(product => (
-                        <ProductCard key={product.id} product={product} />
+                        <div key={product.id} className="min-w-[280px] sm:min-w-[320px] shrink-0 snap-start">
+                            <ProductCard product={product} />
+                        </div>
                     ))}
                 </div>
             </section>

@@ -1,8 +1,9 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef } from 'react';
 import ProductCard from '../components/ui/ProductCard';
 import { products } from '../data/products';
 
 export default function CategoryPage({ category, title, bannerImage }) {
+    const scrollContainerRef = useRef(null);
     const [filters, setFilters] = useState({
         JacketsVests: false,
         Fleece: false,
@@ -102,7 +103,13 @@ export default function CategoryPage({ category, title, bannerImage }) {
                                 className="text-xs font-semibold text-amber-600 dark:text-amber-400 hover:underline"
                                 onClick={(e) => {
                                     e.preventDefault();
-                                    document.getElementById('athlete-edition')?.scrollIntoView({ behavior: 'smooth' });
+                                    const athleteEl = document.getElementById('athlete-edition');
+                                    if (athleteEl && scrollContainerRef.current) {
+                                        scrollContainerRef.current.scrollTo({
+                                            top: athleteEl.offsetTop - 20, // Add a bit of top margin
+                                            behavior: 'smooth'
+                                        });
+                                    }
                                 }}
                             >
                                 Jump to Athlete Edition ↓
@@ -112,7 +119,10 @@ export default function CategoryPage({ category, title, bannerImage }) {
                 </div>
 
                 {/* Product Grid */}
-                <div className="md:col-span-3">
+                <div 
+                    ref={scrollContainerRef} 
+                    className="md:col-span-3 h-[80vh] overflow-y-auto relative pb-24 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                >
                     {displayProducts.length === 0 && !showAthleteOnly ? (
                         <p className="text-gray-500 italic mt-8 dark:text-gray-400">No products match your criteria. Try adjusting your filters.</p>
                     ) : (

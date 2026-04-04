@@ -17,6 +17,9 @@ import Cart from './pages/Cart';
 import Login from './pages/Login';
 import OrderHistory from './pages/OrderHistory';
 import SearchResults from './pages/SearchResults';
+import About from './pages/About';
+import Support from './pages/Support';
+import Policy from './pages/Policy';
 
 function App() {
   return (
@@ -27,7 +30,7 @@ function App() {
             <BrowserRouter>
               <Routes>
                 <Route path="/login" element={<Login />} />
-                
+
                 <Route element={<Layout />}>
                   <Route path="/" element={<Home />} />
                   <Route path="/men" element={<Men />} />
@@ -37,6 +40,9 @@ function App() {
                   <Route path="/cart" element={<Cart />} />
                   <Route path="/orders" element={<OrderHistory />} />
                   <Route path="/search" element={<SearchResults />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/support" element={<Support />} />
+                  <Route path="/privacy-policy" element={<Policy />} />
                 </Route>
               </Routes>
               <Toast />

@@ -39,30 +39,44 @@ export default function ModelSlideshow({ slides = [], title = 'Our Models', inte
 
                 {/* Carousel Viewport */}
                 <div
-                    className="relative rounded-2xl overflow-hidden shadow-2xl"
-                    style={{ aspectRatio: '16/9', maxHeight: '600px' }}
+                    className="relative max-w-6xl mx-auto rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] ring-1 ring-white/10 bg-black/50"
+                    style={{ aspectRatio: '16/9', maxHeight: '700px' }}
                     onMouseEnter={() => setIsPaused(true)}
                     onMouseLeave={() => setIsPaused(false)}
                 >
                     {slides.map((slide, idx) => (
                         <div
                             key={idx}
-                            className="absolute inset-0 transition-opacity duration-700"
+                            className="absolute inset-0 transition-opacity duration-1000 ease-in-out"
                             style={{ opacity: idx === current ? 1 : 0, zIndex: idx === current ? 1 : 0 }}
                         >
+                            {/* Blurred background layer for premium glassmorphism feel */}
+                            <img
+                                src={slide.image}
+                                alt=""
+                                className="absolute inset-0 w-full h-full object-cover blur-3xl opacity-60 scale-110"
+                                aria-hidden="true"
+                                onError={(e) => { e.target.src = '/assets/images/hero/hero.jpg'; }}
+                            />
+
+                            {/* Sharp foreground image */}
                             <img
                                 src={slide.image}
                                 alt={slide.caption || `Slide ${idx + 1}`}
-                                className="w-full h-full object-cover"
+                                className="relative w-full h-full object-contain drop-shadow-2xl z-10"
                                 onError={(e) => { e.target.src = '/assets/images/hero/hero.jpg'; }}
                                 loading="lazy"
                             />
-                            {/* Gradient overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                            {/* Caption */}
+                            
+                            {/* Gradient overlay for text contrast */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent z-10" />
+                            
+                            {/* Modernized Caption */}
                             {slide.caption && (
-                                <div className="absolute bottom-8 left-0 right-0 text-center px-6">
-                                    <p className="text-white text-lg md:text-xl font-semibold drop-shadow-lg">{slide.caption}</p>
+                                <div className="absolute bottom-10 left-0 right-0 text-center px-6 z-20">
+                                    <p className="inline-block text-white text-xl md:text-3xl font-extrabold tracking-wide drop-shadow-2xl border border-white/20 bg-black/40 backdrop-blur-md px-8 py-3 rounded-full animate-[fade-in_1s_ease-out]">
+                                        {slide.caption}
+                                    </p>
                                 </div>
                             )}
                         </div>
