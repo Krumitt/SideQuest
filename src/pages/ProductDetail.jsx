@@ -65,7 +65,14 @@ export default function ProductDetail() {
                 {/* Details Section */}
                 <div className="space-y-6">
                     <div>
-                        <h2 className="text-sm text-blue-600 font-semibold tracking-wide uppercase mb-2">{brand}</h2>
+                        <div className="flex items-center gap-3 mb-2">
+                            <h2 className="text-sm text-blue-600 font-semibold tracking-wide uppercase">{brand}</h2>
+                            {product.gender && (
+                                <span className="px-2.5 py-0.5 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs font-semibold rounded-full border border-gray-200 dark:border-gray-600 shadow-sm">
+                                    Gender: {product.gender}
+                                </span>
+                            )}
+                        </div>
                         <h1 className="text-4xl font-extrabold text-gray-900 dark:text-white leading-tight">{product.name}</h1>
                         {product.athleteTag && (
                             <div className="mt-3 mb-1">
