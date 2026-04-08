@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
-import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import { Link, NavLink, useNavigate, useSearchParams } from 'react-router-dom';
 import { useTheme } from '../../context/ThemeContext.jsx';
 import { useCart } from '../../context/CartContext.jsx';
 import { useAuth } from '../../context/AuthContext.jsx';
@@ -142,10 +142,16 @@ export default function Navbar() {
                 </Link>
 
                 {/* Desktop Navigation */}
-                <nav className="hidden lg:flex gap-10 font-semibold text-lg text-black dark:text-white">
-                    <Link to="/men" className="border-b-2 border-transparent hover:border-black dark:hover:border-white transition duration-200">Men</Link>
-                    <Link to="/women" className="border-b-2 border-transparent hover:border-black dark:hover:border-white transition duration-200">Women</Link>
-                    <Link to="/athletes" className="border-b-2 border-transparent hover:border-black dark:hover:border-white transition duration-200">Athlete Favorites</Link>
+                <nav className="hidden lg:flex gap-10 font-semibold text-lg">
+                    <NavLink to="/men" className={({ isActive }) => `border-b-2 transition duration-200 ${isActive ? 'border-black dark:border-white text-black dark:text-white' : 'border-transparent text-gray-500 hover:border-black dark:hover:border-white hover:text-black dark:hover:text-white'}`}>Men</NavLink>
+                    <NavLink to="/women" className={({ isActive }) => `border-b-2 transition duration-200 ${isActive ? 'border-black dark:border-white text-black dark:text-white' : 'border-transparent text-gray-500 hover:border-black dark:hover:border-white hover:text-black dark:hover:text-white'}`}>Women</NavLink>
+                    <NavLink to="/athletes" className={({ isActive }) => `border-b-2 transition duration-200 ${isActive ? 'border-black dark:border-white text-black dark:text-white' : 'border-transparent text-gray-500 hover:border-black dark:hover:border-white hover:text-black dark:hover:text-white'}`}>Athlete Favorites</NavLink>
+                    <NavLink to="/inspiration" className={({ isActive }) => `border-b-2 transition duration-200 flex items-center gap-1 ${isActive ? 'border-pink-500 dark:border-pink-400 text-pink-500 dark:text-pink-400' : 'border-transparent text-gray-500 hover:border-pink-500 dark:hover:border-pink-400 hover:text-pink-500 dark:hover:text-pink-400'}`}>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                        </svg>
+                        Community Fits
+                    </NavLink>
                 </nav>
 
                 {/* Search Bar (Desktop) */}
@@ -380,9 +386,10 @@ export default function Navbar() {
                                 </div>
                             ) : null}
 
-                            <Link to="/men" onClick={() => setIsMenuOpen(false)}>Men</Link>
-                            <Link to="/women" onClick={() => setIsMenuOpen(false)}>Women</Link>
-                            <Link to="/athletes" onClick={() => setIsMenuOpen(false)}>Athlete Favorites</Link>
+                            <NavLink to="/men" onClick={() => setIsMenuOpen(false)} className={({ isActive }) => isActive ? 'text-black dark:text-white' : 'text-gray-500 hover:text-black dark:hover:text-white transition'}>Men</NavLink>
+                            <NavLink to="/women" onClick={() => setIsMenuOpen(false)} className={({ isActive }) => isActive ? 'text-black dark:text-white' : 'text-gray-500 hover:text-black dark:hover:text-white transition'}>Women</NavLink>
+                            <NavLink to="/athletes" onClick={() => setIsMenuOpen(false)} className={({ isActive }) => isActive ? 'text-black dark:text-white' : 'text-gray-500 hover:text-black dark:hover:text-white transition'}>Athlete Favorites</NavLink>
+                            <NavLink to="/inspiration" onClick={() => setIsMenuOpen(false)} className={({ isActive }) => `font-bold transition flex gap-1 ${isActive ? 'text-pink-500 dark:text-pink-400' : 'text-gray-400 hover:text-pink-500'}`}>Community Fits ✨</NavLink>
                             <hr className="dark:border-gray-700" />
 
                             {currentUser ? (

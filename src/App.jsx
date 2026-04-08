@@ -22,6 +22,7 @@ import About from './pages/About';
 import Support from './pages/Support';
 import Policy from './pages/Policy';
 import NotFound from './pages/NotFound';
+import Inspiration from './pages/Inspiration';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
                   <Route path="/men" element={<Men />} />
                   <Route path="/women" element={<Women />} />
                   <Route path="/athletes" element={<Athletes />} />
+                  <Route path="/inspiration" element={<Inspiration />} />
                   <Route path="/product/:id" element={<ProductDetail />} />
                   <Route path="/cart" element={<Cart />} />
                   <Route path="/orders" element={<OrderHistory />} />

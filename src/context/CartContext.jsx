@@ -56,6 +56,29 @@ export const CartProvider = ({ children }) => {
         return true;
     };
 
+    const addMultipleToCart = (itemsArray) => {
+        if (!currentUser) return false;
+
+        setCart(prevCart => {
+            let nextCart = [...prevCart];
+            
+            itemsArray.forEach(newItem => {
+                const existingIndex = nextCart.findIndex(item => item.id === newItem.id && item.size === newItem.size);
+                if (existingIndex >= 0) {
+                    nextCart[existingIndex] = { ...nextCart[existingIndex], quantity: nextCart[existingIndex].quantity + newItem.quantity };
+                } else {
+                    nextCart.push({ ...newItem });
+                }
+            });
+
+            return nextCart;
+        });
+
+        setToastMessage(`Outfit copied to your cart!`);
+        setTimeout(() => setToastMessage(null), 3000);
+        return true;
+    };
+
     const updateQuantity = (productId, size, newQuantity) => {
         if (newQuantity < 1) {
             removeFromCart(productId, size);
@@ -106,6 +129,7 @@ export const CartProvider = ({ children }) => {
         <CartContext.Provider value={{ 
             cart, 
             addToCart, 
+            addMultipleToCart,
             updateQuantity, 
             removeFromCart, 
             clearCart,

@@ -4,11 +4,14 @@ import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import { generateCSV } from '../utils/invoice';
 import AthleteBadge from '../components/ui/AthleteBadge';
+import { addInspiration } from '../utils/inspiration';
+import { useState } from 'react';
 
 export default function Cart() {
     const { cart, updateQuantity, removeFromCart, cartTotals, checkout } = useCart();
     const { currentUser } = useAuth();
     const navigate = useNavigate();
+    const [note, setNote] = useState('');
 
     const handleCheckout = () => {
         if (!currentUser) {
@@ -41,6 +44,9 @@ export default function Cart() {
             totals: cartTotals
         };
         checkout(orderPayload);
+        
+        // 4. Send to inspiration feed
+        addInspiration(currentUser, cart, cartTotals.total, note);
         
         alert('Checkout successful! Invoice downloaded.');
         navigate('/orders');
@@ -117,6 +123,22 @@ export default function Cart() {
                     <div className="flex justify-between font-bold text-lg mt-4 mb-6 dark:text-white">
                         <span>Total</span>
                         <span>₹{cartTotals.total.toLocaleString('en-IN')}</span>
+                    </div>
+
+                    <div className="mb-6">
+                        <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                            Share your look (Optional)
+                        </label>
+                        <textarea
+                            value={note}
+                            onChange={(e) => setNote(e.target.value)}
+                            placeholder="e.g., Perfect kit for a winter hike!"
+                            className="w-full text-sm border p-3 rounded-md bg-transparent dark:text-white dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white transition"
+                            rows="2"
+                        />
+                        <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">
+                            Your checkout will anonymously inspire others on the community page!
+                        </p>
                     </div>
 
                     <button 
