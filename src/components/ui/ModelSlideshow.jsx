@@ -68,13 +68,10 @@ export default function ModelSlideshow({ slides = [], title = 'Our Models', inte
                                 loading="lazy"
                             />
                             
-                            {/* Gradient overlay for text contrast */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent z-10" />
-                            
-                            {/* Modernized Caption */}
+                            {/* Clean crisp floating caption */}
                             {slide.caption && (
-                                <div className="absolute bottom-10 left-0 right-0 text-center px-6 z-20">
-                                    <p className="inline-block text-white text-xl md:text-3xl font-extrabold tracking-wide drop-shadow-2xl border border-white/20 bg-black/40 backdrop-blur-md px-8 py-3 rounded-full animate-[fade-in_1s_ease-out]">
+                                <div className="absolute bottom-12 left-0 right-0 text-center px-6 z-20 pointer-events-none">
+                                    <p className="inline-block text-white text-2xl md:text-4xl font-extrabold tracking-wide drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)] animate-[fade-in_0.5s_ease-out]">
                                         {slide.caption}
                                     </p>
                                 </div>

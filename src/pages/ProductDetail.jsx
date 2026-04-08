@@ -3,12 +3,16 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { products } from '../data/products';
 import { useCart } from '../context/CartContext';
 import AthleteBadge from '../components/ui/AthleteBadge';
+import StarRating from '../components/ui/StarRating';
+import ReviewSection from '../components/ui/ReviewSection';
+import { calculateRating } from '../utils/reviews';
 
 export default function ProductDetail() {
     const { id } = useParams();
     const navigate = useNavigate();
     const { addToCart } = useCart();
     const [selectedSize, setSelectedSize] = useState('L');
+    const [refreshReviews, setRefreshReviews] = useState(0);
 
     const product = products.find(p => p.id === id);
 
@@ -20,6 +24,8 @@ export default function ProductDetail() {
             </div>
         );
     }
+
+    const { averageRating, totalReviews } = calculateRating(product.id, product.defaultRating, product.defaultReviewCount);
 
     const brand = product.category === 'athlete' && product.name.includes("TNF") ? "The North Face" :
         (product.category === 'athlete' && product.name.includes("Patagonia")) ? "Patagonia" : "SideQuest Gear";
@@ -67,17 +73,9 @@ export default function ProductDetail() {
                             </div>
                         )}
                         <div className="flex items-center gap-2 mt-2">
-                            <div className="flex text-yellow-500 text-sm">
-                                {[1, 2, 3, 4].map(i => (
-                                    <svg key={i} xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 fill-current" viewBox="0 0 24 24">
-                                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                                    </svg>
-                                ))}
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-300 dark:text-gray-600 fill-current" viewBox="0 0 24 24">
-                                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                                </svg>
-                            </div>
-                            <span className="text-gray-500 dark:text-gray-400 text-sm">(120 ratings)</span>
+                            <StarRating rating={averageRating} size="w-5 h-5" />
+                            <span className="text-gray-800 dark:text-gray-200 font-bold ml-1">{averageRating.toFixed(1)}</span>
+                            <span className="text-gray-500 dark:text-gray-400 text-sm hover:underline cursor-pointer" onClick={() => window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'})}>({totalReviews} reviews)</span>
                         </div>
                     </div>
 
@@ -142,6 +140,12 @@ export default function ProductDetail() {
                     </div>
                 </div>
             </div>
+
+            {/* Review Section Details */}
+            <ReviewSection 
+                productId={product.id} 
+                onReviewAdded={() => setRefreshReviews(prev => prev + 1)} 
+            />
         </main>
     );
 }

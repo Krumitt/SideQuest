@@ -19,7 +19,7 @@ export default function Home() {
 
             {/* ================= FEATURED PRODUCTS ================= */}
             <section className="max-w-7xl mx-auto px-6 py-16 border-b border-gray-800">
-                <h2 className="text-3xl font-bold mb-8 text-white">Featured Gear</h2>
+                <h2 className="text-3xl font-bold mb-8 text-black dark:text-white">Featured Gear</h2>
                 <div className="flex overflow-x-auto gap-8 snap-x snap-mandatory pb-4 pt-2 -mx-6 px-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                     {featuredProducts.map(product => (
                         <div key={product.id} className="min-w-[280px] sm:min-w-[320px] shrink-0 snap-start">
@@ -31,10 +31,10 @@ export default function Home() {
 
             {/* ================= CTA SECTION ================= */}
             <section className="relative h-[80vh] w-full bg-black overflow-hidden">
-                <img 
-                    src="/assets/images/hero/hero2.png" 
-                    alt="Adventure Hero" 
-                    className="absolute inset-0 w-full h-full object-cover opacity-60" 
+                <img
+                    src="/assets/images/hero/hero2.png"
+                    alt="Adventure Hero"
+                    className="absolute inset-0 w-full h-full object-cover opacity-60"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20"></div>
                 <div className="relative z-10 max-w-7xl mx-auto h-full flex flex-col justify-center px-6 text-white text-center md:text-left">

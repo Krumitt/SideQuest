@@ -22,6 +22,8 @@ export const products = [
         category: 'men',
         subCategory: 'JacketsVests',
         featured: true,
+        defaultRating: 4.2,
+        defaultReviewCount: 33,
     },
     {
         id: 'm_j2',
@@ -31,6 +33,8 @@ export const products = [
         category: 'men',
         subCategory: 'JacketsVests',
         featured: false,
+        defaultRating: 4.9,
+        defaultReviewCount: 46,
     },
     {
         id: 'm_j3',
@@ -40,6 +44,8 @@ export const products = [
         category: 'men',
         subCategory: 'JacketsVests',
         featured: false,
+        defaultRating: 4.1,
+        defaultReviewCount: 59,
     },
     {
         id: 'm_j4',
@@ -49,6 +55,8 @@ export const products = [
         category: 'men',
         subCategory: 'JacketsVests',
         featured: true,
+        defaultRating: 4.8,
+        defaultReviewCount: 72,
     },
     {
         id: 'm_j5',
@@ -58,6 +66,8 @@ export const products = [
         category: 'men',
         subCategory: 'JacketsVests',
         featured: false,
+        defaultRating: 4.0,
+        defaultReviewCount: 85,
     },
     {
         id: 'm_j6',
@@ -67,6 +77,8 @@ export const products = [
         category: 'men',
         subCategory: 'JacketsVests',
         featured: false,
+        defaultRating: 4.7,
+        defaultReviewCount: 98,
     },
     {
         id: 'm_j7',
@@ -76,6 +88,8 @@ export const products = [
         category: 'men',
         subCategory: 'JacketsVests',
         featured: false,
+        defaultRating: 3.9,
+        defaultReviewCount: 111,
     },
     {
         id: 'm_j8',
@@ -85,6 +99,8 @@ export const products = [
         category: 'men',
         subCategory: 'JacketsVests',
         featured: true,
+        defaultRating: 4.6,
+        defaultReviewCount: 124,
     },
 
     // ═══════════════════════════════════════════════════════
@@ -98,6 +114,8 @@ export const products = [
         category: 'men',
         subCategory: 'Fleece',
         featured: true,
+        defaultRating: 3.8,
+        defaultReviewCount: 137,
     },
     {
         id: 'm_f2',
@@ -107,6 +125,8 @@ export const products = [
         category: 'men',
         subCategory: 'Fleece',
         featured: false,
+        defaultRating: 4.5,
+        defaultReviewCount: 150,
     },
     {
         id: 'm_f3',
@@ -116,6 +136,8 @@ export const products = [
         category: 'men',
         subCategory: 'Fleece',
         featured: true,
+        defaultRating: 3.7,
+        defaultReviewCount: 163,
     },
     {
         id: 'm_f4',
@@ -125,6 +147,8 @@ export const products = [
         category: 'men',
         subCategory: 'Fleece',
         featured: false,
+        defaultRating: 4.4,
+        defaultReviewCount: 176,
     },
     {
         id: 'm_f5',
@@ -134,6 +158,8 @@ export const products = [
         category: 'men',
         subCategory: 'Fleece',
         featured: false,
+        defaultRating: 3.6,
+        defaultReviewCount: 189,
     },
 
     // ═══════════════════════════════════════════════════════
@@ -147,6 +173,8 @@ export const products = [
         category: 'men',
         subCategory: 'Bottoms',
         featured: true,
+        defaultRating: 4.3,
+        defaultReviewCount: 22,
     },
     {
         id: 'm_b2',
@@ -156,6 +184,8 @@ export const products = [
         category: 'men',
         subCategory: 'Bottoms',
         featured: false,
+        defaultRating: 3.5,
+        defaultReviewCount: 35,
     },
     {
         id: 'm_b3',
@@ -165,6 +195,8 @@ export const products = [
         category: 'men',
         subCategory: 'Bottoms',
         featured: false,
+        defaultRating: 4.2,
+        defaultReviewCount: 48,
     },
     {
         id: 'm_b4',
@@ -174,6 +206,8 @@ export const products = [
         category: 'men',
         subCategory: 'Bottoms',
         featured: true,
+        defaultRating: 4.9,
+        defaultReviewCount: 61,
     },
     {
         id: 'm_b5',
@@ -183,6 +217,8 @@ export const products = [
         category: 'men',
         subCategory: 'Bottoms',
         featured: false,
+        defaultRating: 4.1,
+        defaultReviewCount: 74,
     },
 
     // ═══════════════════════════════════════════════════════
@@ -196,6 +232,8 @@ export const products = [
         category: 'men',
         subCategory: 'Footwear',
         featured: false,
+        defaultRating: 4.8,
+        defaultReviewCount: 87,
     },
     {
         id: 'm_ft2',
@@ -205,6 +243,8 @@ export const products = [
         category: 'men',
         subCategory: 'Footwear',
         featured: true,
+        defaultRating: 4.0,
+        defaultReviewCount: 100,
     },
     {
         id: 'm_ft3',
@@ -214,6 +254,8 @@ export const products = [
         category: 'men',
         subCategory: 'Footwear',
         featured: false,
+        defaultRating: 4.7,
+        defaultReviewCount: 113,
     },
     {
         id: 'm_ft4',
@@ -223,6 +265,8 @@ export const products = [
         category: 'men',
         subCategory: 'Footwear',
         featured: false,
+        defaultRating: 3.9,
+        defaultReviewCount: 126,
     },
     {
         id: 'm_ft5',
@@ -232,6 +276,8 @@ export const products = [
         category: 'men',
         subCategory: 'Footwear',
         featured: false,
+        defaultRating: 4.6,
+        defaultReviewCount: 139,
     },
     {
         id: 'm_ft6',
@@ -241,6 +287,8 @@ export const products = [
         category: 'men',
         subCategory: 'Footwear',
         featured: true,
+        defaultRating: 3.8,
+        defaultReviewCount: 152,
     },
     {
         id: 'm_ft7',
@@ -250,6 +298,8 @@ export const products = [
         category: 'men',
         subCategory: 'Footwear',
         featured: false,
+        defaultRating: 4.5,
+        defaultReviewCount: 165,
     },
 
     // ═══════════════════════════════════════════════════════
@@ -263,6 +313,8 @@ export const products = [
         category: 'women',
         subCategory: 'JacketsVests',
         featured: true,
+        defaultRating: 3.7,
+        defaultReviewCount: 178,
     },
     {
         id: 'w_j2',
@@ -272,6 +324,8 @@ export const products = [
         category: 'women',
         subCategory: 'JacketsVests',
         featured: false,
+        defaultRating: 4.4,
+        defaultReviewCount: 191,
     },
     {
         id: 'w_j3',
@@ -281,6 +335,8 @@ export const products = [
         category: 'women',
         subCategory: 'JacketsVests',
         featured: true,
+        defaultRating: 3.6,
+        defaultReviewCount: 24,
     },
     {
         id: 'w_j4',
@@ -290,6 +346,8 @@ export const products = [
         category: 'women',
         subCategory: 'JacketsVests',
         featured: false,
+        defaultRating: 4.3,
+        defaultReviewCount: 37,
     },
     {
         id: 'w_j5',
@@ -299,6 +357,8 @@ export const products = [
         category: 'women',
         subCategory: 'JacketsVests',
         featured: false,
+        defaultRating: 3.5,
+        defaultReviewCount: 50,
     },
     {
         id: 'w_j6',
@@ -308,6 +368,8 @@ export const products = [
         category: 'women',
         subCategory: 'JacketsVests',
         featured: false,
+        defaultRating: 4.2,
+        defaultReviewCount: 63,
     },
 
     // ═══════════════════════════════════════════════════════
@@ -321,6 +383,8 @@ export const products = [
         category: 'women',
         subCategory: 'Fleece',
         featured: true,
+        defaultRating: 4.9,
+        defaultReviewCount: 76,
     },
     {
         id: 'w_f2',
@@ -330,6 +394,8 @@ export const products = [
         category: 'women',
         subCategory: 'Fleece',
         featured: false,
+        defaultRating: 4.1,
+        defaultReviewCount: 89,
     },
     {
         id: 'w_f3',
@@ -339,6 +405,8 @@ export const products = [
         category: 'women',
         subCategory: 'Fleece',
         featured: true,
+        defaultRating: 4.8,
+        defaultReviewCount: 102,
     },
     {
         id: 'w_f4',
@@ -348,6 +416,8 @@ export const products = [
         category: 'women',
         subCategory: 'Fleece',
         featured: false,
+        defaultRating: 4.0,
+        defaultReviewCount: 115,
     },
     {
         id: 'w_f5',
@@ -357,6 +427,8 @@ export const products = [
         category: 'women',
         subCategory: 'Fleece',
         featured: false,
+        defaultRating: 4.7,
+        defaultReviewCount: 128,
     },
     {
         id: 'w_f6',
@@ -366,6 +438,8 @@ export const products = [
         category: 'women',
         subCategory: 'Fleece',
         featured: false,
+        defaultRating: 3.9,
+        defaultReviewCount: 141,
     },
 
     // ═══════════════════════════════════════════════════════
@@ -379,6 +453,8 @@ export const products = [
         category: 'women',
         subCategory: 'Bottoms',
         featured: false,
+        defaultRating: 4.6,
+        defaultReviewCount: 154,
     },
     {
         id: 'w_b2',
@@ -388,6 +464,8 @@ export const products = [
         category: 'women',
         subCategory: 'Bottoms',
         featured: false,
+        defaultRating: 3.8,
+        defaultReviewCount: 167,
     },
     {
         id: 'w_b3',
@@ -397,6 +475,8 @@ export const products = [
         category: 'women',
         subCategory: 'Bottoms',
         featured: true,
+        defaultRating: 4.5,
+        defaultReviewCount: 180,
     },
     {
         id: 'w_b4',
@@ -406,6 +486,8 @@ export const products = [
         category: 'women',
         subCategory: 'Bottoms',
         featured: false,
+        defaultRating: 3.7,
+        defaultReviewCount: 193,
     },
     {
         id: 'w_b5',
@@ -415,6 +497,8 @@ export const products = [
         category: 'women',
         subCategory: 'Bottoms',
         featured: false,
+        defaultRating: 4.4,
+        defaultReviewCount: 26,
     },
 
     // ═══════════════════════════════════════════════════════
@@ -428,6 +512,8 @@ export const products = [
         category: 'women',
         subCategory: 'Footwear',
         featured: false,
+        defaultRating: 3.6,
+        defaultReviewCount: 39,
     },
     {
         id: 'w_ft2',
@@ -437,6 +523,8 @@ export const products = [
         category: 'women',
         subCategory: 'Footwear',
         featured: true,
+        defaultRating: 4.3,
+        defaultReviewCount: 52,
     },
     {
         id: 'w_ft3',
@@ -446,6 +534,8 @@ export const products = [
         category: 'women',
         subCategory: 'Footwear',
         featured: false,
+        defaultRating: 3.5,
+        defaultReviewCount: 65,
     },
     {
         id: 'w_ft4',
@@ -455,6 +545,8 @@ export const products = [
         category: 'women',
         subCategory: 'Footwear',
         featured: false,
+        defaultRating: 4.2,
+        defaultReviewCount: 78,
     },
     {
         id: 'w_ft5',
@@ -464,6 +556,8 @@ export const products = [
         category: 'women',
         subCategory: 'Footwear',
         featured: true,
+        defaultRating: 4.9,
+        defaultReviewCount: 91,
     },
     {
         id: 'w_ft6',
@@ -473,6 +567,8 @@ export const products = [
         category: 'women',
         subCategory: 'Footwear',
         featured: false,
+        defaultRating: 4.1,
+        defaultReviewCount: 104,
     },
 
     // ═══════════════════════════════════════════════════════
@@ -489,6 +585,8 @@ export const products = [
         athleteTag: true,
         athleteName: 'Alex Honnold',
         crossCategory: 'men',
+        defaultRating: 4.8,
+        defaultReviewCount: 117,
     },
     {
         id: 'ath_ah2',
@@ -500,6 +598,8 @@ export const products = [
         athleteTag: true,
         athleteName: 'Alex Honnold',
         crossCategory: 'men',
+        defaultRating: 4.0,
+        defaultReviewCount: 130,
     },
     {
         id: 'ath_ah3',
@@ -511,6 +611,8 @@ export const products = [
         athleteTag: true,
         athleteName: 'Alex Honnold',
         crossCategory: 'men',
+        defaultRating: 4.7,
+        defaultReviewCount: 143,
     },
 
     // ═══════════════════════════════════════════════════════
@@ -527,6 +629,8 @@ export const products = [
         athleteTag: true,
         athleteName: 'Kit Deslauriers',
         crossCategory: 'women',
+        defaultRating: 3.9,
+        defaultReviewCount: 156,
     },
     {
         id: 'ath_kd2',
@@ -538,6 +642,8 @@ export const products = [
         athleteTag: true,
         athleteName: 'Kit Deslauriers',
         crossCategory: 'women',
+        defaultRating: 4.6,
+        defaultReviewCount: 169,
     },
     {
         id: 'ath_kd3',
@@ -549,6 +655,8 @@ export const products = [
         athleteTag: true,
         athleteName: 'Kit Deslauriers',
         crossCategory: 'women',
+        defaultRating: 3.8,
+        defaultReviewCount: 182,
     },
 
     // ═══════════════════════════════════════════════════════
@@ -565,6 +673,8 @@ export const products = [
         athleteTag: true,
         athleteName: 'Tommy Caldwell',
         crossCategory: 'men',
+        defaultRating: 4.5,
+        defaultReviewCount: 195,
     },
     {
         id: 'ath_tc2',
@@ -576,6 +686,8 @@ export const products = [
         athleteTag: true,
         athleteName: 'Tommy Caldwell',
         crossCategory: 'men',
+        defaultRating: 3.7,
+        defaultReviewCount: 28,
     },
     {
         id: 'ath_tc3',
@@ -587,6 +699,8 @@ export const products = [
         athleteTag: true,
         athleteName: 'Tommy Caldwell',
         crossCategory: 'men',
+        defaultRating: 4.4,
+        defaultReviewCount: 41,
     },
 
     // ═══════════════════════════════════════════════════════
@@ -603,6 +717,8 @@ export const products = [
         athleteTag: true,
         athleteName: 'Caroline Gleich',
         crossCategory: 'women',
+        defaultRating: 3.6,
+        defaultReviewCount: 54,
     },
     {
         id: 'ath_cg2',
@@ -614,6 +730,8 @@ export const products = [
         athleteTag: true,
         athleteName: 'Caroline Gleich',
         crossCategory: 'women',
+        defaultRating: 4.3,
+        defaultReviewCount: 67,
     },
     {
         id: 'ath_cg3',
@@ -625,5 +743,7 @@ export const products = [
         athleteTag: true,
         athleteName: 'Caroline Gleich',
         crossCategory: 'women',
+        defaultRating: 3.5,
+        defaultReviewCount: 80,
     },
 ];

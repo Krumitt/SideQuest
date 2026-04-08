@@ -2,10 +2,14 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../../context/CartContext.jsx';
 import AthleteBadge from './AthleteBadge.jsx';
+import StarRating from './StarRating.jsx';
+import { calculateRating } from '../../utils/reviews.js';
 
 export default function ProductCard({ product, className = '' }) {
     const { addToCart } = useCart();
     const navigate = useNavigate();
+
+    const { averageRating, totalReviews } = calculateRating(product.id, product.defaultRating, product.defaultReviewCount);
 
     const handleAddToCart = () => {
         const currentUser = localStorage.getItem('currentUser');
@@ -41,6 +45,10 @@ export default function ProductCard({ product, className = '' }) {
             </Link>
 
             <div>
+                <div className="flex items-center gap-1 mb-2">
+                    <StarRating rating={averageRating} size="w-4 h-4" />
+                    <span className="text-xs text-gray-500 ml-1">({totalReviews})</span>
+                </div>
                 <p className="text-gray-600 mb-3">₹{product.price.toLocaleString('en-IN')}</p>
                 <button
                     onClick={handleAddToCart}

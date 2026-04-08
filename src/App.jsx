@@ -7,6 +7,7 @@ import { SearchProvider } from './context/SearchContext';
 
 import Layout from './components/layout/Layout';
 import Toast from './components/ui/Toast';
+import ScrollToTop from './components/layout/ScrollToTop';
 
 import Home from './pages/Home';
 import Men from './pages/Men';
@@ -20,6 +21,7 @@ import SearchResults from './pages/SearchResults';
 import About from './pages/About';
 import Support from './pages/Support';
 import Policy from './pages/Policy';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -28,6 +30,7 @@ function App() {
         <CartProvider>
           <SearchProvider>
             <BrowserRouter>
+              <ScrollToTop />
               <Routes>
                 <Route path="/login" element={<Login />} />
 
@@ -43,6 +46,7 @@ function App() {
                   <Route path="/about" element={<About />} />
                   <Route path="/support" element={<Support />} />
                   <Route path="/privacy-policy" element={<Policy />} />
+                  <Route path="*" element={<NotFound />} />
                 </Route>
               </Routes>
               <Toast />
