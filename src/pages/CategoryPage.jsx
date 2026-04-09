@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useRef } from 'react';
 import ProductCard from '../components/ui/ProductCard';
 import { products } from '../data/products';
+import { calculateRating } from '../utils/reviews';
 
 export default function CategoryPage({ category, title, bannerImage }) {
     const scrollContainerRef = useRef(null);
@@ -12,6 +13,7 @@ export default function CategoryPage({ category, title, bannerImage }) {
     });
 
     const [sortOrder, setSortOrder] = useState('asc');
+    const [ratingFilter, setRatingFilter] = useState(0);
     const [showAthleteOnly, setShowAthleteOnly] = useState(false);
 
     const handleFilterChange = (subCat) => {
@@ -20,9 +22,17 @@ export default function CategoryPage({ category, title, bannerImage }) {
 
     const { regularProducts, athleteProducts } = useMemo(() => {
         // 1. Gather all products that belong to this category (native OR cross-listed athlete)
-        const allForCategory = products.filter(
+        let allForCategory = products.filter(
             p => p.category === category || p.crossCategory === category
         );
+
+        // Apply Rating Filter
+        if (ratingFilter > 0) {
+            allForCategory = allForCategory.filter(p => {
+                const { averageRating } = calculateRating(p.id, p.defaultRating, p.defaultReviewCount);
+                return averageRating >= ratingFilter;
+            });
+        }
 
         // 2. Athlete-tagged products (cross-listed from athlete page)
         const athlete = allForCategory.filter(p => p.athleteTag);
@@ -42,7 +52,7 @@ export default function CategoryPage({ category, title, bannerImage }) {
         );
 
         return { regularProducts: regular, athleteProducts: athlete };
-    }, [category, filters, sortOrder]);
+    }, [category, filters, sortOrder, ratingFilter]);
 
     const displayProducts = showAthleteOnly ? [] : regularProducts;
 
@@ -89,6 +99,18 @@ export default function CategoryPage({ category, title, bannerImage }) {
                     >
                         <option value="asc">Price: Low to High</option>
                         <option value="desc">Price: High to Low</option>
+                    </select>
+
+                    <h2 className="text-xl font-bold mb-4 mt-8 dark:text-white">Rating</h2>
+                    <select
+                        value={ratingFilter}
+                        onChange={(e) => setRatingFilter(Number(e.target.value))}
+                        className="w-full border p-2 rounded-md bg-white text-black dark:bg-gray-800 dark:text-white dark:border-gray-700"
+                    >
+                        <option value={0}>Any Rating</option>
+                        <option value={4}>4 Stars &amp; Up</option>
+                        <option value={3}>3 Stars &amp; Up</option>
+                        <option value={2}>2 Stars &amp; Up</option>
                     </select>
 
                     {/* Athlete filter toggle */}

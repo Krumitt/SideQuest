@@ -1,13 +1,3 @@
-/**
- * Unified product catalogue for SideQuest.
- *
- * Athlete products carry:
- *   athleteTag: true
- *   athleteName: string
- *   crossCategory: 'men' | 'women'   ← makes them appear in the respective category page
- *
- * CategoryPage filters on:  p.category === category  OR  p.crossCategory === category
- */
 
 export const products = [
 
